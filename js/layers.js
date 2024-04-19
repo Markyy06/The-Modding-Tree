@@ -30,7 +30,16 @@ upgrades: {
     11: {
         title: "The man who sold the eifel tower",
         description: "Doubles your Memes!",
-        cost: new Decimal(3),
+        cost: new Decimal(2),
         },
+    12: {
+        title: "Doge",
+        description: "Multiplies your Meme Point gain by your Memes",
+        cost: new Decimal(3),
+        effect() {
+            return player[this.layer].points.add(1).pow(0.5)
+        },
+        effectdisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+    },
     },
 })
